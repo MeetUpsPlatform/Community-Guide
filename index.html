@@ -10,19 +10,18 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
-      height: 100%;
-    }
+    html, body { height: 100%; }
 
     body {
       background: #FAF8F3;
       color: #5A5A5A;
       font-family: 'DM Sans', sans-serif;
+      /* MOBILE: normal scroll layout */
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1.25rem;
+      padding: 2.5rem 1.25rem;
     }
 
     .page {
@@ -31,7 +30,6 @@
       text-align: center;
     }
 
-    /* ── Header ── */
     .brand-top {
       font-size: 0.72rem;
       font-weight: 600;
@@ -42,12 +40,10 @@
     }
 
     .logo-img {
-      height: 60px;
+      height: 58px;
       width: auto;
-      margin-bottom: 1.5rem;
+      margin: 0 auto 1.4rem;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     h1 {
@@ -78,7 +74,9 @@
       padding: 2rem 1.5rem;
       text-decoration: none;
       color: inherit;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
     }
 
@@ -88,7 +86,7 @@
       transform: translateY(-3px);
     }
 
-    .card-icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
+    .card-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
 
     .card-title {
       font-family: 'DM Serif Display', serif;
@@ -100,7 +98,8 @@
     .card-desc {
       font-size: 0.92rem;
       line-height: 1.55;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.25rem;
+      flex: 1;
     }
 
     .btn {
@@ -114,6 +113,7 @@
       border-radius: 100px;
       text-decoration: none;
       transition: background 0.2s;
+      white-space: nowrap;
     }
     .btn:hover { background: #5c9464; }
     .btn-easy { background: #8863A8; }
@@ -121,48 +121,93 @@
 
     .footer-note { font-size: 0.9rem; }
 
-    /* ══════════════════════════
-       DESKTOP — fills the screen
-    ══════════════════════════ */
+    /* ══════════════════════════════════════════
+       DESKTOP — fills the full screen properly
+    ══════════════════════════════════════════ */
     @media (min-width: 640px) {
-      body { padding: 3rem 3rem; }
 
-      .page { max-width: 92vw; }
+      body {
+        /* Fill the full viewport height */
+        height: 100vh;
+        overflow: hidden;
+        padding: 0;
+      }
 
-      .brand-top { font-size: 0.85rem; letter-spacing: 0.25em; }
+      .page {
+        max-width: none;
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-rows: auto auto auto 1fr auto;
+        align-items: center;
+        padding: 3vh 5vw;
+        gap: 0;
+      }
 
-      .logo-img { height: 90px; }
+      .brand-top {
+        font-size: 1rem;
+        letter-spacing: 0.25em;
+        margin-bottom: 0;
+        padding-bottom: 1.5vh;
+      }
+
+      .logo-img {
+        height: 8vh;
+        min-height: 50px;
+        max-height: 90px;
+        margin-bottom: 0;
+        padding-bottom: 1.5vh;
+      }
 
       h1 {
-        font-size: clamp(3rem, 5vw, 5rem);
-        margin-bottom: 0.75rem;
+        font-size: clamp(2.5rem, 5.5vh, 5rem);
+        margin-bottom: 0;
+        padding-bottom: 1vh;
       }
 
       .intro {
-        font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+        font-size: clamp(1rem, 2vh, 1.4rem);
         max-width: 55ch;
-        margin: 0 auto 3.5rem;
+        margin: 0 auto;
+        padding-bottom: 3vh;
       }
 
       .cards {
         grid-template-columns: 1fr 1fr;
-        gap: clamp(1.5rem, 3vw, 2.5rem);
-        margin-bottom: 3rem;
+        gap: 3vw;
+        margin-bottom: 0;
+        padding-bottom: 3vh;
+        height: 100%;
       }
 
       .card {
-        padding: clamp(2.5rem, 4vw, 4rem) clamp(2rem, 3vw, 3.5rem);
+        padding: 4vh 3vw;
+        justify-content: center;
+        height: 100%;
       }
 
-      .card-icon { font-size: clamp(3.5rem, 6vw, 6rem); margin-bottom: 1.2rem; }
+      .card-icon { font-size: clamp(3rem, 7vh, 7rem); margin-bottom: 2vh; }
 
-      .card-title { font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 0.65rem; }
+      .card-title {
+        font-size: clamp(1.5rem, 3.5vh, 3rem);
+        margin-bottom: 1.2vh;
+      }
 
-      .card-desc { font-size: clamp(1rem, 1.5vw, 1.2rem); margin-bottom: 2rem; }
+      .card-desc {
+        font-size: clamp(0.95rem, 2vh, 1.3rem);
+        margin-bottom: 2.5vh;
+        flex: 0;
+      }
 
-      .btn { font-size: clamp(1rem, 1.4vw, 1.2rem); padding: 0.8rem 2.2rem; }
+      .btn {
+        font-size: clamp(1rem, 2vh, 1.3rem);
+        padding: 1.2vh 2.5vw;
+      }
 
-      .footer-note { font-size: clamp(1rem, 1.4vw, 1.2rem); }
+      .footer-note {
+        font-size: clamp(0.9rem, 1.8vh, 1.2rem);
+        padding-top: 0;
+      }
     }
   </style>
 </head>
@@ -179,6 +224,7 @@
     />
 
     <h1>Our Community Guide 💛</h1>
+
     <p class="intro">Choose the version that works best for you. Both cover the same important information.</p>
 
     <div class="cards">
