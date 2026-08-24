@@ -6,7 +6,7 @@
   <title>Safe Soulmates — Community Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -16,51 +16,50 @@
       font-family: 'DM Sans', sans-serif;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1.25rem;
+      padding: 3rem 1.5rem;
     }
 
     .page {
       width: 100%;
-      max-width: 520px;
+      max-width: 480px;
       text-align: center;
     }
 
     /* ── Logo / Header ── */
-    .brand-tag {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: #73976C;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
     .logo-wrap {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
     }
 
     .logo-wrap img {
-      height: 56px;
+      height: 60px;
       width: auto;
+    }
+
+    .brand-fallback {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: #73976C;
+      text-transform: uppercase;
     }
 
     /* ── Intro ── */
     h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-size: 2rem;
       color: #73976C;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.65rem;
       line-height: 1.2;
     }
 
     .intro {
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      font-size: 1rem;
       color: #5A5A5A;
-      max-width: 38ch;
-      margin: 0 auto 2rem;
-      line-height: 1.55;
+      line-height: 1.6;
+      margin-bottom: 2rem;
     }
 
     /* ── Cards ── */
@@ -73,39 +72,35 @@
     .card {
       background: #fff;
       border: 2px solid #E5E577;
-      border-radius: 16px;
-      padding: 1.75rem 1.5rem;
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
       text-align: center;
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
       display: block;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
     }
 
     .card:hover {
       border-color: #73976C;
-      box-shadow: 0 4px 20px rgba(115,151,108,0.15);
-      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(115,151,108,0.18);
+      transform: translateY(-3px);
     }
 
-    .card-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
+    .card-icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
 
     .card-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       color: #73976C;
       margin-bottom: 0.5rem;
     }
 
     .card-desc {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: #5A5A5A;
-      line-height: 1.5;
-      margin-bottom: 1.1rem;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
     }
 
     .btn {
@@ -114,77 +109,80 @@
       color: #fff;
       font-family: 'DM Sans', sans-serif;
       font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.55rem 1.4rem;
+      font-size: 0.92rem;
+      padding: 0.6rem 1.5rem;
       border-radius: 100px;
       text-decoration: none;
       transition: background 0.2s;
     }
-
     .btn:hover { background: #5c9464; }
-
-    .btn-easy {
-      background: #8863A8;
-    }
+    .btn-easy { background: #8863A8; }
     .btn-easy:hover { background: #6a4d8a; }
 
-    /* ── Footer note ── */
     .footer-note {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: #5A5A5A;
     }
 
-    /* ── Desktop: widen and go side-by-side ── */
-    @media (min-width: 700px) {
+    /* ══════════════════════════════════════
+       DESKTOP — fills the screen properly
+    ══════════════════════════════════════ */
+    @media (min-width: 640px) {
+      body {
+        padding: 4rem 2rem;
+      }
+
       .page {
-        max-width: 860px;
+        max-width: 1100px;
       }
 
       .logo-wrap img {
-        height: 68px;
+        height: 80px;
       }
 
       h1 {
-        font-size: 2.6rem;
-        margin-bottom: 0.75rem;
+        font-size: clamp(2.4rem, 4vw, 3.5rem);
+        margin-bottom: 0.85rem;
       }
 
       .intro {
-        font-size: 1.1rem;
-        max-width: 52ch;
-        margin-bottom: 2.5rem;
+        font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+        max-width: 55ch;
+        margin: 0 auto 3rem;
       }
 
       .cards {
         grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
       }
 
       .card {
-        padding: 2.25rem 2rem;
+        padding: 3rem 2.5rem;
       }
 
       .card-icon {
-        font-size: 3rem;
+        font-size: 4rem;
+        margin-bottom: 1rem;
       }
 
       .card-title {
-        font-size: 1.45rem;
+        font-size: 1.7rem;
+        margin-bottom: 0.65rem;
       }
 
       .card-desc {
-        font-size: 1rem;
-        margin-bottom: 1.4rem;
+        font-size: 1.05rem;
+        margin-bottom: 1.75rem;
       }
 
       .btn {
-        font-size: 1rem;
-        padding: 0.65rem 1.75rem;
+        font-size: 1.05rem;
+        padding: 0.75rem 2rem;
       }
 
       .footer-note {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -193,7 +191,12 @@
   <div class="page">
 
     <div class="logo-wrap">
-      <img src="assets/logo/safe-soulmates-logo-full-colour.png" alt="Safe Soulmates CIC" />
+      <img
+        src="assets/logo/safe-soulmates-logo-full-colour.png"
+        alt="Safe Soulmates CIC"
+        onerror="this.style.display='none'; document.querySelector('.brand-fallback').style.display='block';"
+      />
+      <p class="brand-fallback" style="display:none;">✦ Safe Soulmates CIC</p>
     </div>
 
     <h1>Our Community Guide 💛</h1>
