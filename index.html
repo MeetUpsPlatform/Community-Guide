@@ -4,249 +4,149 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Safe Soulmates — Community Guide</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { height: 100%; }
 
-    html, body { height: 100%; }
-
+    /* ─── MOBILE ─── */
     body {
       background: #FAF8F3;
       color: #5A5A5A;
       font-family: 'DM Sans', sans-serif;
-      /* MOBILE: normal scroll layout */
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 2.5rem 1.25rem;
-    }
-
-    .page {
-      width: 100%;
-      max-width: 500px;
       text-align: center;
     }
 
     .brand-top {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      color: #73976C;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; color: #73976C;
+      text-transform: uppercase; margin-bottom: 1rem;
     }
 
     .logo-img {
-      height: 58px;
-      width: auto;
-      margin: 0 auto 1.4rem;
-      display: block;
+      height: 58px; width: auto;
+      margin: 0 auto 1.5rem; display: block;
     }
 
     h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      color: #73976C;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
+      font-size: 2rem; color: #73976C;
+      line-height: 1.2; margin-bottom: 0.6rem;
     }
 
     .intro {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
+      font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;
     }
 
-    /* ── Cards ── */
     .cards {
-      display: grid;
-      gap: 1.25rem;
-      margin-bottom: 1.5rem;
+      display: grid; gap: 1.25rem;
+      width: 100%; margin-bottom: 1.5rem;
     }
 
     .card {
-      background: #fff;
-      border: 2px solid #E5E577;
-      border-radius: 18px;
-      padding: 2rem 1.5rem;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      background: #fff; border: 2px solid #E5E577;
+      border-radius: 18px; padding: 2rem 1.5rem;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center;
+      transition: border-color .2s, box-shadow .2s, transform .15s;
     }
-
     .card:hover {
       border-color: #73976C;
-      box-shadow: 0 6px 24px rgba(115,151,108,0.18);
+      box-shadow: 0 6px 24px rgba(115,151,108,.18);
       transform: translateY(-3px);
     }
 
-    .card-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-
+    .card-icon { font-size: 2.5rem; margin-bottom: .75rem; }
     .card-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      color: #73976C;
-      margin-bottom: 0.4rem;
+      font-size: 1.3rem; color: #73976C; margin-bottom: .5rem;
     }
-
-    .card-desc {
-      font-size: 0.92rem;
-      line-height: 1.55;
-      margin-bottom: 1.25rem;
-      flex: 1;
-    }
-
+    .card-desc { font-size: .92rem; line-height: 1.55; margin-bottom: 1.25rem; }
     .btn {
-      display: inline-block;
-      background: #73976C;
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.92rem;
-      padding: 0.6rem 1.5rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: background 0.2s;
-      white-space: nowrap;
+      display: inline-block; background: #73976C; color: #fff;
+      font-family: 'DM Sans', sans-serif; font-weight: 600;
+      font-size: .92rem; padding: .6rem 1.5rem;
+      border-radius: 100px; text-decoration: none;
+      transition: background .2s; white-space: nowrap;
     }
     .btn:hover { background: #5c9464; }
     .btn-easy { background: #8863A8; }
     .btn-easy:hover { background: #6a4d8a; }
+    .footer-note { font-size: .9rem; }
 
-    .footer-note { font-size: 0.9rem; }
-
-    /* ══════════════════════════════════════════
-       DESKTOP — fills the full screen properly
-    ══════════════════════════════════════════ */
+    /* ─── DESKTOP ─── */
     @media (min-width: 640px) {
-
       body {
-        /* Fill the full viewport height */
         height: 100vh;
-        overflow: hidden;
-        padding: 0;
-      }
-
-      .page {
-        max-width: none;
-        width: 100%;
-        height: 100vh;
-        display: grid;
-        grid-template-rows: auto auto auto 1fr auto;
-        align-items: center;
         padding: 3vh 5vw;
-        gap: 0;
+        justify-content: space-between;
       }
 
-      .brand-top {
-        font-size: 1rem;
-        letter-spacing: 0.25em;
-        margin-bottom: 0;
-        padding-bottom: 1.5vh;
-      }
-
-      .logo-img {
-        height: 8vh;
-        min-height: 50px;
-        max-height: 90px;
-        margin-bottom: 0;
-        padding-bottom: 1.5vh;
-      }
-
-      h1 {
-        font-size: clamp(2.5rem, 5.5vh, 5rem);
-        margin-bottom: 0;
-        padding-bottom: 1vh;
-      }
-
-      .intro {
-        font-size: clamp(1rem, 2vh, 1.4rem);
-        max-width: 55ch;
-        margin: 0 auto;
-        padding-bottom: 3vh;
-      }
+      .brand-top { font-size: .9rem; letter-spacing: .22em; margin-bottom: .5vh; }
+      .logo-img { height: 8vh; min-height: 50px; max-height: 90px; margin-bottom: 1.5vh; }
+      h1 { font-size: 6vh; margin-bottom: .5vh; }
+      .intro { font-size: 2.2vh; margin-bottom: 0; }
 
       .cards {
         grid-template-columns: 1fr 1fr;
         gap: 3vw;
         margin-bottom: 0;
-        padding-bottom: 3vh;
-        height: 100%;
+        /* make cards fill all remaining vertical space */
+        height: 1px; /* trick: forces flex children to stretch */
+        flex: 1;
+        margin-top: 2.5vh;
+        margin-bottom: 2.5vh;
+        align-items: stretch;
       }
 
       .card {
-        padding: 4vh 3vw;
-        justify-content: center;
+        padding: 0 4vw;
+        /* spread content top to bottom inside the card */
+        justify-content: space-evenly;
         height: 100%;
       }
 
-      .card-icon { font-size: clamp(3rem, 7vh, 7rem); margin-bottom: 2vh; }
-
-      .card-title {
-        font-size: clamp(1.5rem, 3.5vh, 3rem);
-        margin-bottom: 1.2vh;
-      }
-
-      .card-desc {
-        font-size: clamp(0.95rem, 2vh, 1.3rem);
-        margin-bottom: 2.5vh;
-        flex: 0;
-      }
-
-      .btn {
-        font-size: clamp(1rem, 2vh, 1.3rem);
-        padding: 1.2vh 2.5vw;
-      }
-
-      .footer-note {
-        font-size: clamp(0.9rem, 1.8vh, 1.2rem);
-        padding-top: 0;
-      }
+      .card-icon { font-size: 10vh; margin-bottom: 0; }
+      .card-title { font-size: 4.5vh; margin-bottom: 0; }
+      .card-desc { font-size: 2.3vh; line-height: 1.5; margin-bottom: 0; }
+      .btn { font-size: 2.3vh; padding: 1.5vh 2.5vw; }
+      .footer-note { font-size: 2vh; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
 
+  <div style="text-align:center; width:100%;">
     <p class="brand-top">✦ Safe Soulmates CIC</p>
-
-    <img
-      class="logo-img"
-      src="assets/logo/safe-soulmates-logo-full-colour.png"
-      alt="Safe Soulmates CIC"
-      onerror="this.style.display='none';"
-    />
-
+    <img class="logo-img" src="assets/logo/safe-soulmates-logo-full-colour.png"
+         alt="Safe Soulmates CIC" onerror="this.style.display='none'" />
     <h1>Our Community Guide 💛</h1>
-
     <p class="intro">Choose the version that works best for you. Both cover the same important information.</p>
-
-    <div class="cards">
-
-      <a class="card" href="full-guide.html">
-        <span class="card-icon">📘</span>
-        <div class="card-title">Full Guide</div>
-        <p class="card-desc">The complete community guide with all the details, friendships, safety, and our rules.</p>
-        <span class="btn">View full guide</span>
-      </a>
-
-      <a class="card" href="easyread/index.html">
-        <span class="card-icon">🖼️</span>
-        <div class="card-title">Easy Read Guide</div>
-        <p class="card-desc">Short sentences and pictures. Easier to read and understand.</p>
-        <span class="btn btn-easy">View Easy Read</span>
-      </a>
-
-    </div>
-
-    <p class="footer-note">Not sure which to choose? Ask any member of staff — we're happy to help. 💚</p>
-
   </div>
+
+  <div class="cards">
+    <a class="card" href="full-guide.html">
+      <span class="card-icon">📘</span>
+      <div class="card-title">Full Guide</div>
+      <p class="card-desc">The complete community guide with all the details, friendships, safety, and our rules.</p>
+      <span class="btn">View full guide</span>
+    </a>
+    <a class="card" href="easyread/index.html">
+      <span class="card-icon">🖼️</span>
+      <div class="card-title">Easy Read Guide</div>
+      <p class="card-desc">Short sentences and pictures. Easier to read and understand.</p>
+      <span class="btn btn-easy">View Easy Read</span>
+    </a>
+  </div>
+
+  <p class="footer-note">Not sure which to choose? Ask any member of staff — we're happy to help. 💚</p>
+
 </body>
 </html>
